@@ -1,6 +1,10 @@
 # 0.4.0
 
-# 0.4.0-dev
+## 0.4.0-dev1
+
+init the workspace contracts for ghoshell project.
+
+## 0.4.0-dev
 
 copy from `ghostos_common` and add dump_pydantic_model_to_toml
 
@@ -13,13 +17,13 @@ provide prompt object model for `ghosots_moss`.
 
 `generate_directory_tree` accept `descriptionGetter`
 
-## 0.3.3 
+## 0.3.3
 
 fix: fix `list_dir` can not ignore directory in `.gitignore`.
 
 ## 0.3.2
 
-* add `get_module_fullname_from_path` method. 
+* add `get_module_fullname_from_path` method.
 * fix `list_dir` can't ignore dir
 
 ## 0.3.1
