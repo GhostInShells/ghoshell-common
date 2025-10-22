@@ -1,4 +1,5 @@
 # ide
+.ghoshell_ws
 .idea/
 dist
 debug.log

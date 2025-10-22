@@ -1,5 +1,9 @@
 # 0.4.0
 
+## 0.4.0
+
+* fix the workspace bugs and add memory storage for test. 
+
 ## 0.4.0-dev1
 
 init the workspace contracts for ghoshell project.

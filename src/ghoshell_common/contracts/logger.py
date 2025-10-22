@@ -222,7 +222,7 @@ class WorkspaceLoggerProvider(Provider[LoggerItf]):
     logger from workspace.
     """
 
-    def __init__(self, name: str):
+    def __init__(self, name: str = "ghoshell"):
         self.name = name
 
     def singleton(self) -> bool:

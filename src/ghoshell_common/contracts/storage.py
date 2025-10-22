@@ -1,10 +1,10 @@
 from abc import abstractmethod
-from typing import Optional, Iterable, Protocol
+from typing import Optional, Iterable, Protocol, Dict
 import os
 from ghoshell_container import Container, Provider
 import fnmatch
 
-__all__ = ['Storage', 'FileStorage', 'DefaultFileStorage', 'FileStorageProvider']
+__all__ = ['Storage', 'FileStorage', 'DefaultFileStorage', 'FileStorageProvider', 'MemoryStorage']
 
 
 class Storage(Protocol):
@@ -153,6 +153,45 @@ class DefaultFileStorage(FileStorage):
         if pattern and fnmatch.fnmatch(filename, pattern):
             return matched
         return not matched
+
+
+class MemoryStorage(Storage):
+
+    def __init__(self, dir_: str):
+        self._dir: str = dir_
+        self._children: Dict[str, Storage] = {}
+        self._data: Dict[str, bytes] = {}
+
+    def sub_storage(self, relative_path: str) -> "Storage":
+        dir_ = os.path.join(self._dir, relative_path)
+        if dir_ in self._children:
+            return self._children[dir_]
+        sub = MemoryStorage(dir_)
+        self._children[dir_] = sub
+        return sub
+
+    def get(self, file_path: str) -> bytes:
+        _path = os.path.join(self._dir, file_path)
+        if _path not in self._data:
+            raise FileNotFoundError(f"file {file_path} is not found")
+        return self._data[_path]
+
+    def remove(self, file_path: str) -> None:
+        _path = os.path.join(self._dir, file_path)
+        if _path in self._data:
+            del self._data[_path]
+
+    def exists(self, file_path: str) -> bool:
+        _path = os.path.join(self._dir, file_path)
+        return _path in self._data
+
+    def put(self, file_path: str, content: bytes) -> None:
+        _path = os.path.join(self._dir, file_path)
+        self._data[_path] = content
+
+    def dir(self, prefix_dir: str, recursive: bool, patten: Optional[str] = None) -> Iterable[str]:
+        for dir_ in self._children.keys():
+            yield dir_[len(self._dir):]
 
 
 class FileStorageProvider(Provider[FileStorage]):
