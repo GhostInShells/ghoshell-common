@@ -27,11 +27,7 @@ from ghoshell_common.helpers.trans import gettext, ngettext
 
 from ghoshell_common.helpers.coding import reflect_module_code, unwrap
 from ghoshell_common.helpers.openai import get_openai_key
-from ghoshell_common.helpers.tree_sitter import tree_sitter_parse, code_syntax_check
-from ghoshell_common.helpers.code_analyser import (
-    get_code_interface, get_code_interface_str,
-    get_attr_source_from_code, get_attr_interface_from_code,
-)
+
 from ghoshell_common.helpers.files import generate_directory_tree, list_dir, is_pathname_ignored
 
 if TYPE_CHECKING:

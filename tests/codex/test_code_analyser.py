@@ -1,4 +1,4 @@
-from ghoshell_common.helpers import get_code_interface_str, code_syntax_check
+from ghoshell_common.codex import get_code_interface_str, code_syntax_check
 import inspect
 
 

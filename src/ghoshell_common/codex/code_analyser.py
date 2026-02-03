@@ -2,7 +2,7 @@ from typing import List, Union, Dict
 from tree_sitter import (
     Node as TreeSitterNode,
 )
-from ghoshell_common.helpers.tree_sitter import tree_sitter_parse
+from ghoshell_common.codex.tree_sitter import tree_sitter_parse
 from functools import lru_cache
 
 __all__ = ['get_code_interface', 'get_code_interface_str', 'get_attr_source_from_code', 'get_attr_interface_from_code']
