@@ -1,4 +1,4 @@
-from ghoshell_common.helpers.tree_sitter import code_syntax_check
+from ghoshell_common.codex.tree_sitter import code_syntax_check
 
 
 def test_lint_code_success():

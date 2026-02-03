@@ -1,4 +1,4 @@
-from ghoshell_common.helpers.code_analyser import (
+from ghoshell_common.codex.code_analyser import (
     get_code_interface, get_attr_source_from_code, get_attr_interface_from_code,
     get_code_interface_str,
 )

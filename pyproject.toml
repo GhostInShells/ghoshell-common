@@ -1,6 +1,6 @@
 [project]
 name = "ghoshell-common"
-version = "0.4.0"
+version = "0.5.0"
 description = "common library for GhostInShells project"
 authors = [
     { name = "thirdgerb", email = "thirdgerb@gmail.com" }
@@ -10,10 +10,14 @@ readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
     "click>=8.3.0",
-    "ghoshell-container>=0.3.0",
+    "ghoshell-container>=0.3.1",
     "pydantic<3.0.0,>=2.7.0",
     "pyyaml<7.0.0,>=6.0.1",
     "tomlkit>=0.13.3",
+]
+
+[project.optional-dependencies]
+codex = [
     "tree-sitter<=0.24.0,>=0.23.0",
     "tree-sitter-languages>=1.10.0",
     "tree-sitter-python>=0.23.6",

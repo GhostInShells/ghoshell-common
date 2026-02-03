@@ -1,8 +1,13 @@
-# 0.4.0
+# v0.5.0
+
+Move the tree-sitter dependencies into optional `codex` dependencies.
+Tree sitter is big...
+
+# v0.4.0
 
 ## 0.4.0
 
-* fix the workspace bugs and add memory storage for test. 
+* fix the workspace bugs and add memory storage for test.
 
 ## 0.4.0-dev1
 
@@ -12,7 +17,7 @@ init the workspace contracts for ghoshell project.
 
 copy from `ghostos_common` and add dump_pydantic_model_to_toml
 
-# 0.3.0
+# v0.3.0
 
 move `ghostos.prompter` to `ghostos_common.prompter`.
 provide prompt object model for `ghosots_moss`.
@@ -34,7 +39,7 @@ fix: fix `list_dir` can not ignore directory in `.gitignore`.
 
 * fix `generate_module_and_attr_name` can not generate from object decorator.
 
-# 0.2.0
+# v0.2.0
 
 ## 0.2.3
 

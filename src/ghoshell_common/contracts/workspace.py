@@ -85,7 +85,7 @@ class LocalWorkspaceProvider(Provider[Workspace]):
         return True
 
     def factory(self, con: Container) -> Optional[Workspace]:
-        if self._ws_dir and self._stub_dir and not os.path.exists(self._stub_dir):
+        if self._ws_dir and self._stub_dir and not os.path.exists(self._ws_dir):
             os.makedirs(self._stub_dir)
             shutil.copytree(self._stub_dir, self._ws_dir)
         return LocalWorkspace(self._ws_dir)

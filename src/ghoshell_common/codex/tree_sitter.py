@@ -1,17 +1,22 @@
 from typing import Optional, Iterable, List, Set, Dict, Type, ClassVar, Generator
 from abc import ABC, abstractmethod
-from tree_sitter import (
-    Tree, Node as TreeSitterNode,
-)
+
 from enum import Enum
-import tree_sitter_python as tspython
-from tree_sitter import Language, Parser
+
+try:
+    from tree_sitter import (
+        Tree, Node as TreeSitterNode,
+    )
+    import tree_sitter_python as tspython
+    from tree_sitter import Language, Parser
+except ImportError:
+    raise ImportError("Please install ghoshell-common[codex] to use this feature")
 
 _PythonParser = None
 
 __all__ = [
     'tree_sitter_parse', 'code_syntax_check', 'traverse_tree', 'get_error_nodes', 'get_node_error',
-    'TreeSitterNode', 'TreeNodeType',
+    'PyNode', 'TreeNodeType',
     'PyNode', 'PyClassNode', 'PyAttrNode', 'PyImportNode', 'PyModuleNode', 'PyStrNode',
 ]
 
